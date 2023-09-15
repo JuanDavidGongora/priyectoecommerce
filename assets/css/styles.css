@@ -1,0 +1,569 @@
+:root{
+    --general-shadow:0 .5rem 1rem rgba(0,0,0,.15);
+    --h-header: 50px;
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+
+}
+
+body {
+    padding: 1rem;
+    background-color: white;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+/*                                                HEADER*/
+
+header {
+    height: var(--h-header);
+    background-color: white;    
+    position: fixed;    
+    width:100%;
+    top: 0;
+    left: 0;
+
+    display:flex;
+}
+
+header > nav {
+    max-width: 1000px;
+    width:100%;
+    margin: 0 auto;
+   
+    display:flex; 
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+    
+    
+
+}
+
+header > nav > i {
+    font-size: 2rem;
+    cursor:pointer;  
+    position: relative;
+    
+
+
+}
+
+
+.sticky {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.sticky.scrolled {
+    background-color: #ffffff; 
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.home_header-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(208, 36, 65);
+    margin: 0 auto;
+    max-width: 1024px;
+    justify-content: flex-end;
+    
+    
+
+   
+
+}
+
+
+/*                                               DARKMODE */
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+
+body.dark-mode {
+    background-color: #160e1fe1;
+    color: #fff;
+}
+
+
+.dark-mode-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    right: 100px;
+}
+
+
+.dark-mode-button i {
+    margin-right: 8px; 
+    padding: 10px;
+}
+
+
+.dark-mode-button.dark-mode i {
+    color: #fff; 
+
+}
+
+.bx-cart {
+    color: black; 
+}
+
+
+.dark-mode .bx-cart {
+    color: black;
+}
+
+
+
+.amountProducts {
+    width: 20px;    
+    height: 20px;   
+    font-size: 0.8rem;
+    background-color: #000000;
+    color: white;  
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    right: -5px;
+    top: 15px;
+}
+
+
+
+/*                                                PRODUCTS*/
+
+.products {
+    overflow: hidden;
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 1024px;
+    margin: 0 auto;
+    gap: 1rem;
+
+} 
+
+.product {
+
+    border-radius: 1rem;
+    box-shadow: var(--general-shadow);
+    background-color:  rgb(212, 189, 189);
+  
+  
+}
+
+.product__img {
+    padding: 1rem;
+    
+}
+
+.product__info { 
+    background-color: white;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+}
+
+
+
+.product__info h4 {
+    min-height: 54px;
+    font-size: 0.9rem;
+
+}
+
+.product__info h5 {
+    font-size: 1.2rem;
+
+}
+
+.product__info span {
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #d5acac;
+}
+
+.product__info .SoldOut{
+    display: inline-block;
+    color: white;
+    background-color: lightcoral;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    user-select: none;
+
+
+}
+
+.product__info .bx-plus {
+    box-shadow: var(--general-shadow);
+    background-color: rgba(255, 255, 255, 0.569);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: black;
+    font-size: 1.3rem;  
+    cursor: pointer;
+}
+
+/*                                                CART*/
+
+.cart {
+    height: calc(100vh - var(--h-header));
+    width: 400px;
+    background-color:white;
+    position: fixed;
+    top: var(--h-header);
+    right: -100%;
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+
+    transition: right 0.3s ;
+    
+
+}
+
+.cart__show {
+    right: 0;
+
+}
+
+.cart__products { 
+    height: 80%;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.cart__product {
+  
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.cart__product--img{
+    width: 40%;
+    background-color: #ccc;
+    border-radius: 1rem;
+}
+
+.cart__product--body{
+    width: 60%;
+    padding: 1rem;
+    display: flexd;
+    flex-direction: column;
+    gap: 0.3rem;
+
+}
+
+.cart__product--body-op{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cart__product--body-op .bx-trash{
+    color: lightcoral;
+}
+
+.cart__product--body-op i{
+    cursor: pointer;
+}
+
+.cart__total {
+    
+    height: 15%;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+   
+
+}
+
+.cart__total--info{
+ 
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.btn__buy{
+    padding: 0.5rem;
+    width: 90%;
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+}
+
+@media (max-width: 500px) {
+    .cart {
+        width: 100%;
+    }
+}    
+
+/* Estilos para el footer */
+footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px; 
+    text-align: center; 
+}
+
+/* Estilos para el texto dentro del footer */
+footer p {
+    margin: 0; 
+    font-size: 14px; 
+}
+
+
+
+
+.dark-mode .cart__products {
+    background-color: #160e1fe1;; 
+    color: #fff; 
+   
+}
+
+
+.dark-mode .cart {
+    background-color: #160e1fe1; 
+    color: #fff; 
+   
+}
+
+.dark-mode .product__info {
+
+    color: #fff; 
+    background-color: #160e1fe1;
+  
+    box-shadow: var(--general-shadow);
+}
+
+.dark-mode .product__img {
+    background-color: black; 
+    color: #fff; 
+   
+    border-radius: 1rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.home_container {
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%; 
+    max-width: 10000px; 
+   
+    padding: 20px; 
+}
+
+.home_header {
+    max-width: 40000px; 
+    height: 500px;
+    background-color: lightcoral;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: -100px auto 0; 
+    
+}
+
+.home_header-img img {
+    max-width: 100%; 
+    height: auto; 
+    width: auto;
+    max-height: 100%; 
+    
+}
+
+
+
+/* Estilos para .home_body */
+.home_body {
+    flex-grow: 1;
+    text-align: left; 
+    padding-left: 20px; 
+}
+
+.home_body-title {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.home_body-paragragh {
+    font-size: 16px;
+}
+
+.home_body-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.home_body-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+.dark-mode .home_header {
+    background-color: hsl(182, 53%, 74%); 
+    color: #fff; 
+}
+
+
+
+/* Estilos generales para el footer */
+footer {
+    background-color: #d0acac; 
+    color: #fff; 
+    padding: 20px 0; 
+    text-align: center; 
+}
+
+/* Estilos para el contenedor principal del footer */
+#footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
+
+/* Estilos para cada sección de información del footer */
+.footer_info {
+    flex-basis: calc(25% - 20px); 
+    margin: 0 10px; }
+
+.footer_info-title {
+    font-size: 1.5rem; 
+    margin-bottom: 10px; 
+   color: black;
+}
+
+.dark-mode .footer_info-title {
+    color: white;
+   
+}
+
+/* Estilos para la lista de enlaces de cada sección */
+.footer_info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer_info ul li {
+    margin-bottom: 5px; 
+}
+
+/* Estilos para los enlaces en la lista */
+.footer_info ul li a {
+    color: #fff; 
+    text-decoration: none; 
+}
+
+/* Estilos para el párrafo adicional */
+footer p {
+    font-size: 1rem; 
+    margin-top: 20px; 
+}
+
+/* Estilos para los enlaces en el párrafo */
+footer p a {
+    color: #fff; 
+    text-decoration: underline; 
+}
+
+.dark-mode footer {
+    background-color: #160e1fe1; 
+    color: #fff; 
+}
+
+
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.logo img {
+
+    height: 250px;
+    width: 250px;
+}
+
+
+/* Estilos para el contenedor del logotipo y el texto */
+.navbar_logo {
+    display: flex; 
+    align-items: center; 
+}
+
+/* Estilos para el logotipo de la tienda */
+.nav_logo-icon {
+    width: 50px; 
+    height: auto; 
+    margin-right: 400px; }
+
+/* Estilos para el texto al lado del logotipo */
+.navbar_logo span {
+    font-size: 10px; 
+    
+}
+
